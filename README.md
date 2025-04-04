@@ -1,6 +1,14 @@
 # LuaSingleUnity
 Lua Single Unity mode
 
+## Releases
+| Item | Description |
+| ---- | ----------- |
+|[lua_single_unity.h](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity.h)| Header file|
+|[lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c)| single Unity definitions|
+|[lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)| exactly the same as the classic, but with some customization on onelua.c|
+
+
 
 ## Embeding Lua in Single Unity Compilation
 if you want to embed lua in single compilation, create a **test.c** file:
