@@ -1,18 +1,21 @@
 
 
-OUT_TAR = "lua.tar"
-EXTRACTED_TAR_DEST = "extracted_tar"
-OUT_DIR = "lua/"
-MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
-MAX_RECURSION = 100
-RELEASE_DIR = "release"
-ONE_LUA_DEST = "lua/onelua.c"
+local OUT_TAR = "lua.tar"
+local EXTRACTED_TAR_DEST = "extracted_tar"
+local OUT_DIR = "lua/"
+local MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
+local MAX_RECURSION = 100
+local RELEASE_DIR = "release"
+local ONE_LUA_DEST = "lua/onelua.c"
 
-onelua_url = nil
-source_url = nil
+local onelua_url = argv.get_flag_arg_by_index({ "onelua" ,"o"}, 1)
+local source_url = argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
 
 
-version = "5.4.7"
+local version = nil
+if not onelua_url or not source_url then
+    local version =argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
+end 
 
 if not onelua_url then 
     onelua_url = "https://raw.githubusercontent.com/lua/lua/refs/tags/v"..version.."/onelua.c"
