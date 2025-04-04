@@ -1,4 +1,5 @@
 
+#if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
 
 
 // Floor function - returns the largest integer less than or equal to x
@@ -258,3 +259,4 @@ double atan(double x) {
     }
 }
 
+#endif
