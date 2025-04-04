@@ -1,3 +1,6 @@
+# define LUA_SINGLE_UNITY_M_PI		3.14159265358979323846	/* pi */
+
+
 double pow(double x, double y) {
     double result = 1.0;
     for (int i = 0; i < y; i++) {
@@ -56,20 +59,20 @@ double asin(double x) {
 }
 
 double acos(double x) {
-    return M_PI / 2 - asin(x);
+    return LUA_SINGLE_UNITY_M_PI / 2 - asin(x);
 }
 
 double atan2(double y, double x) {
     if (x > 0) {
         return atan(y / x);
     } else if (x < 0 && y >= 0) {
-        return atan(y / x) + M_PI;
+        return atan(y / x) + LUA_SINGLE_UNITY_M_PI;
     } else if (x < 0 && y < 0) {
-        return atan(y / x) - M_PI;
+        return atan(y / x) - LUA_SINGLE_UNITY_M_PI;
     } else if (x == 0 && y > 0) {
-        return M_PI / 2;
+        return LUA_SINGLE_UNITY_M_PI / 2;
     } else if (x == 0 && y < 0) {
-        return -M_PI / 2;
+        return -LUA_SINGLE_UNITY_M_PI / 2;
     } else {
         return 0;
     }
