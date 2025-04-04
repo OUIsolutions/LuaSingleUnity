@@ -11,7 +11,7 @@ Lua Single Unity mode
 ## Macros
 | Flag | Description |
 | ---- | ----------- |
-|LUA_SINGLE_UNITY_GUESS_OS | guess the os, if not defined, it will use the default os check [guess_os.h](/src/guess_os.h) |
+|LUA_SINGLE_UNITY_GUESS_OS | guess the os, if defined, it will use the default os check [guess_os.h](/src/guess_os.h) |
 |LUA_SINGLE_UNITY_EMBED_MODE | use these if you want to embed lua into your C code , otherwise will raises **redefinition of main** |
 |LUA_SINGLE_UNITY_INPLEMENT_LUAC | use these if you want to compile the luac (lua bytecode generator) |
 |LUA_SINGLE_UNITY_MAKE_LUA| (its default if LUA_SINGLE_UNITY_EMBED_MODE and LUA_SINGLE_UNITY_INPLEMENT_LUAC are not defined) use these if you want to compile the lua runtime|
