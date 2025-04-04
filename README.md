@@ -13,6 +13,10 @@ cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -lm -o lua_run
 if you want to compile the **luac**, you can compile with:
 
 ```bash
+cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -DLUA_SINGLE_UNITY_INPLEMENT_LUAC -lm -o luac
+```
+## Embeding lua
+
 
 
 
