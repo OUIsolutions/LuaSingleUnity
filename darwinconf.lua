@@ -41,7 +41,7 @@ if not darwin.dtw.isfile(ONE_LUA_DEST) then
     if aply_one_lua_macro_rename then
         one_lua_content = string.gsub(one_lua_content, "MAKE_LIB","LUA_SINGLE_UNITY_EMBED_MODE")
         one_lua_content = string.gsub(one_lua_content, "MAKE_LUAC","LUA_SINGLE_UNITY_INPLEMENT_LUAC")
-        one_lua_content = string.gsub(one_lua_content, "MAKE_LUA","LUA_SINGLE_UNITY_INPLEMENT_LUA")
+        one_lua_content = string.gsub(one_lua_content, "MAKE_LUA","LUA_SINGLE_UNITY_INPLEMENT_LUA_RUNTIME")
         darwin.dtw.write_file(ONE_LUA_DEST, one_lua_content)
     end
 end 

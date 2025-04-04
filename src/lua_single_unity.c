@@ -21,19 +21,19 @@
 
 #if defined(LUA_SINGLE_UNITY_ONE_LUA_COMPATIBILITY)
     #if defined(MAKE_LIB)
-        #define LUA_SINGLE_UNITY_MAKE_LIB 
+        #define LUA_SINGLE_UNITY_EMBED_MODE 
     #endif 
     #if defined(MAKE_LUAC)
-        #define LUA_SINGLE_UNITY_MAKE_LUAC
+        #define LUA_SINGLE_UNITY_INPLEMENT_LUAC
     #endif
     #if defined(MAKE_LUA)
-        #define LUA_SINGLE_UNITY_MAKE_LUA
+        #define LUA_SINGLE_UNITY_INPLEMENT_LUA_RUNTIME
     #endif 
 #endif
  
 
 
- 
+
 #include "../lua/onelua.c"
 
 #if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
