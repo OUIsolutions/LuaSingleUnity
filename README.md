@@ -22,4 +22,5 @@ output
 
 
 ### Build passing font 
-if you have your fonts, you can download
+if you have your fonts, you can pass in these way
+```bash

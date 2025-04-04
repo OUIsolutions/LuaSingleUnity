@@ -18,14 +18,15 @@ local source_font = darwin.argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
 local version = nil
 local version_is_required = true
 
-if not onelua_font or  not source_font then 
+if  onelua_font and  source_font then 
     version_is_required = false
 end
 
-if not one_lua_exist or not lua_dir_exist then 
-    version_is_required = true
+if  one_lua_exist and  lua_dir_exist then 
+    version_is_required = false
 end
 
+print(version_is_required)
 if  version_is_required then
     version =darwin.argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
     if not version then
