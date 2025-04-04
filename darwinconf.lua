@@ -6,6 +6,8 @@ MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
 MAX_RECURSION = 100
 RELEASE_DIR = "release"
 
+ONELUA = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
+
 local version = darwin.argv.get_flag_arg_by_index({"version", "v"}, 1)
 if version == nil then
     print("Please provide a version number.")
