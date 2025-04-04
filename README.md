@@ -88,7 +88,27 @@ native libs are contained into the amalgamation, so you can just call the **luaL
 function to load the native libs.
 Note that, these its a dangerous function, since if you are inside a a low code, it can allow
 users to run any code, so be careful with this function.
+```c
+#define LUA_SINGLE_UNITY_EMBED_MODE
+#define LUA_SINGLE_UNITY_GUESS_OS
+#include "lua_single_unity_classic_onelua.c"
+int main() {
 
+    lua_State *L = luaL_newstate();
+    const char *expr = "return 3 +3 + 5"; 
+    if (luaL_dostring(L, expr) == LUA_OK) {
+        if (lua_isnumber(L, -1)) { 
+            double result = lua_tonumber(L, -1);
+            printf("result: %f\n", result);
+        }
+    } else {
+        printf("Error: %s\n", lua_tostring(L, -1)); 
+    }
+    lua_close(L); 
+    return 0;
+}
+
+```
 
 
 ## Compiling the runtime
