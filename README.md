@@ -13,6 +13,7 @@ Lua Single Unity mode
 | ---- | ----------- |
 |LUA_SINGLE_UNITY_GUESS_OS | guess the os, if defined, it will use the default os check [guess_os.h](/src/guess_os.h) |
 |LUA_SINGLE_UNITY_EMBED_MODE | use these if you want to embed lua into your C code , otherwise will raises **redefinition of main** |
+|LUA_SINGLE_UNITY_IMPLEMENT_MATH| (implements **math.h**) use these if you dont have the **-lm** avaliable on your os  |
 |LUA_SINGLE_UNITY_INPLEMENT_LUAC | use these if you want to compile the luac (lua bytecode generator) |
 |LUA_SINGLE_UNITY_MAKE_LUA| (its default if LUA_SINGLE_UNITY_EMBED_MODE and LUA_SINGLE_UNITY_INPLEMENT_LUAC are not defined) use these if you want to compile the lua runtime|
 |LUA_SINGLE_UNITY_CLASSIC_ONE_LUA_COMPATIBILITY| it is only usefull on [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c), with these flag will emulate the classic [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
