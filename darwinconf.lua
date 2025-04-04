@@ -39,29 +39,19 @@ if not darwin.dtw.isfile(ONE_LUA_DEST) then
 end 
 
 
-if true then return end 
 
 print("Building Headders")
 print("===================================================================")
 
 
 
-local headers = darwin.camalgamator.generate_amalgamation("src/headers.h", MAX_CONTENT, MAX_RECURSION)
+local headers = darwin.camalgamator.generate_amalgamation("src/lua_single_unity.h", MAX_CONTENT, MAX_RECURSION)
 
-darwin.dtw.write_file(RELEASE_DIR.."/lua_hedders.h", headers)   
+darwin.dtw.write_file(RELEASE_DIR.."release/lua_single_unity.h", headers)   
  
-local filtrage = function(path,import)
-    if import == "luac.c" then
-        return "dont-change"
-    end
-    return  "include-once"
-end
 
-local one_lua_import =darwin.camalgamator.generate_amalgamation_with_callback(
-    "src/onelua_import.c",
-    filtrage,
-    MAX_CONTENT,
-    MAX_RECURSION
-)
-darwin.dtw.write_file(RELEASE_DIR.."/onelua_import.c", one_lua_import)
+
+local one_lua_import =darwin.camalgamator.generate_amalgamation("src/lua_single_unity.c",MAX_CONTENT,MAX_RECURSION)
+
+darwin.dtw.write_file(RELEASE_DIR.."release/lua_single_unity.c", one_lua_import)
 
