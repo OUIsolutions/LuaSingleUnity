@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-lua-v5.4.7.zip
+lua.zip
 # Object files
 *.o
 *.ko
