@@ -26,8 +26,10 @@ if you have your fonts, you can pass in these way
 ```bash
  darwin run_blueprint darwinconf.lua --source https://www.lua.org/ftp/lua-5.4.7.tar.gz --onelua https://raw.githubusercontent.com/lua/lua/refs/heads/master/onelua.c
 ```
+
 ### Build offline
 also ,you can put a dir called **lua** at the same dir of the repo, and call:
+(note that you also must provide the lua/onelua.c file)
 ```bash
 darwin run_blueprint darwinconf.lua
 ```
