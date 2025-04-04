@@ -1,9 +1,4 @@
 
-local version = darwin.argv.get_flag_arg_by_index({"version", "v"}, 1)
-if version == nil then
-    print("Please provide a version number.")
-    return
-end
 
 OUT_TAR = "lua.tar"
 OUT_DIR = "lua"
@@ -11,8 +6,8 @@ MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
 MAX_RECURSION = 100
 RELEASE_DIR = "release"
 
-ONELUA_URL = "https://raw.githubusercontent.com/lua/lua/refs/tags/"..version.."/onelua.c"
-SOURCE_URL = "https://www.lua.org/ftp/lua-"..version..".tar.gz"
+ONELUA_URL = "https://raw.githubusercontent.com/lua/lua/refs/tags/5.4.7/onelua.c"
+SOURCE_URL = "https://www.lua.org/ftp/lua-5.4.7.tar.gz"
 
 
 
@@ -29,7 +24,7 @@ end
 
 if not darwin.dtw.isdir(OUT_DIR) then
     print("Extracting "..OUT_TAR)
-    os.execute("tar -xzf "..OUT_TAR)
+    os.execute("tar -xzf "..OUT_TAR.." -C "..OUT_DIR)
 end
 if true then return end 
 
