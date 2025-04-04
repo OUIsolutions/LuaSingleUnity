@@ -5,7 +5,7 @@ function main()
       
     local out_zip = "lua-v"..VERSION..".zip"
     local url= "https://github.com/lua/lua/archive/refs/tags/v"..VERSION..".zip"
-    local out_dir = "lua-"..VERSION
+    local out_dir = "lua_code"
     if not darwin.dtw.isfile(out_zip) then
         print("Downloading "..out_zip)
         os.execute("curl -L "..url.." -o "..out_zip)
