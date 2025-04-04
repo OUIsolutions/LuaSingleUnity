@@ -8,14 +8,19 @@ local MAX_RECURSION = 100
 local RELEASE_DIR = "release"
 local ONE_LUA_DEST = "lua/onelua.c"
 
-local onelua_font = argv.get_flag_arg_by_index({ "onelua" ,"o"}, 1)
-local source_font = argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
+local onelua_font = darwin.argv.get_flag_arg_by_index({ "onelua" ,"o"}, 1)
+local source_font = darwin.argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
 
 
 local version = nil
 if not onelua_font or not source_font then
-    local version =argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
+    local version =darwin.argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
+    if not version then
+        print("Please provide the version of Lua you want to download. (--version) or (-- onelua <font> --source <font>)")
+        return 
+    end
 end 
+
 
 if not onelua_font then 
     onelua_font = "https://raw.githubusercontent.com/lua/lua/refs/tags/v"..version.."/onelua.c"
