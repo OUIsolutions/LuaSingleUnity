@@ -6,9 +6,9 @@ Lua Single Unity mode
 | ---- | ----------- |
 |[lua_single_unity.h](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity.h)| Header file|
 |[lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c)| single Unity definitions|
-|[lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)| exactly the same as the classic, but with some customization on [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
+|[lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)| exactly the same as the classic, but with some macro renamings on [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
 
-## Flags
+## Macros
 | Flag | Description |
 | ---- | ----------- |
 |LUA_SINGLE_UNITY_GUESS_OS | guess the os, if not defined, it will use the default os check [guess_os.h](/src/guess_os.h) |
@@ -16,6 +16,16 @@ Lua Single Unity mode
 |LUA_SINGLE_UNITY_INPLEMENT_LUAC | use these if you want to compile the luac (lua bytecode generator) |
 |LUA_SINGLE_UNITY_MAKE_LUA| (its default if LUA_SINGLE_UNITY_EMBED_MODE and LUA_SINGLE_UNITY_INPLEMENT_LUAC are not defined) use these if you want to compile the lua runtime|
 |LUA_SINGLE_UNITY_CLASSIC_ONE_LUA_COMPATIBILITY| it is only usefull on [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c) with these flag will emulate the classic [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
+
+## Main difference betwen [lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c) and [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)
+basicly they are the same, the main difference its that these following macros are renamed
+
+| Old Name | New Name |
+| -------- | -------- |
+|MAKE_LIB  | LUA_SINGLE_UNITY_EMBED_MODE |
+|MAKE_LUAC | LUA_SINGLE_UNITY_INPLEMENT_LUAC |
+|MAKE_LUA | LUA_SINGLE_UNITY_MAKE_LUA |
+
 
 ## Embeding Lua in Single Unity Compilation
 if you want to embed lua in single compilation, create a **test.c** file:
