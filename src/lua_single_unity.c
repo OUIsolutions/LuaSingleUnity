@@ -1,3 +1,5 @@
+
+
 #if defined(LUA_SINGLE_UNITY_GUESS_OSS)
 
     #if defined(__APPLE__)
@@ -17,7 +19,8 @@
 
 #endif
 
-#include "../lua/onelua.c"
+#include "onelua.c"
+
 #if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
 #include "math.c"
 #endif
