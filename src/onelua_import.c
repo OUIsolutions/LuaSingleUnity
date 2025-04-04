@@ -13,14 +13,13 @@
         #define LUA_USE_MACOSX 
     #elif defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
         #define LUA_USE_IOS
-    #endif
     #elif defined(__unix__) || defined(__APPLE__) 
         #define LUA_USE_POSIX
     #endif 
 
 
 
-#endif 
+#endif
 
 #include "../lua/onelua.c"
 #if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
