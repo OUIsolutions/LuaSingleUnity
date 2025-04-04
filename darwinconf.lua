@@ -37,7 +37,22 @@ print("===================================================================")
 
 
 
-result = darwin.camalgamator.generate_amalgamation("src/headers.h", MAX_CONTENT, MAX_RECURSION)
+local headers = darwin.camalgamator.generate_amalgamation("src/headers.h", MAX_CONTENT, MAX_RECURSION)
 
-darwin.dtw.write_file(RELEASE_DIR.."/lua_hedders.h", result)   
+darwin.dtw.write_file(RELEASE_DIR.."/lua_hedders.h", headers)   
  
+local filtrage = function(import,path)
+    if import == "luac.c" then
+        return "dont-change"
+    end
+    return  "include-once"
+end
+
+local one_lua_import =darwin.camalgamator.generate_amalgamation_with_callback(
+    "src/onelua_import.c",
+    filtrage,
+    MAX_CONTENT,
+    MAX_RECURSION
+)
+darwin.dtw.write_file(RELEASE_DIR.."/one_lua_import.c", one_lua_import)
+
