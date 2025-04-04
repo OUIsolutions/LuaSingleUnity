@@ -87,7 +87,6 @@ native libs are contained into the amalgamation, so you can just call the **luaL
 function to load the native libs.
 Note that, these its a dangerous function, since if you are inside a a low code, it can allow
 users to run any code, so be careful with this function.
-```
 
 
 
