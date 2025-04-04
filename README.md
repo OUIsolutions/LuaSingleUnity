@@ -1,5 +1,6 @@
 # LuaSingleUnity
-Lua Single Unity mode
+LuaSingleUnity is a tool that provides Lua in a single file format for easy integration into projects. It offers two main variants of implementation files along with a header file.
+
 
 ## Releases
 | Item | Description |
