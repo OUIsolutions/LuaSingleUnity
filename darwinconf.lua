@@ -30,7 +30,7 @@ if not darwin.dtw.isdir(OUT_DIR) then
     local first_dir = darwin.dtw.list_dirs(EXTRACTED_TAR_DEST,INCLUDE_PATH)[1]
     local src = first_dir.."/src"
     darwin.dtw.copy_any_overwriting(src,OUT_DIR)
-    darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
+   -- darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
 end 
 
 

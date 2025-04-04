@@ -1,5 +1,6 @@
 
-//forked from: https://github.com/lua/lua
+
+
 
 #ifndef LUA_SINGLE_UNITY_MAKE_LIB
 #ifndef LUA_SINGLE_UNITY_MAKE_LUAC
@@ -25,7 +26,7 @@
 
 /* no need to change anything below this line ----------------------------- */
 
-#include "lprefix.h"
+#include "../lua/lprefix.h"
 
 #include <assert.h>
 #include <ctype.h>
@@ -49,7 +50,7 @@
 #define LUA_LIB
 #define ltable_c
 #define lvm_c
-#include "luaconf.h"
+#include "../lua/luaconf.h"
 
 /* do not export internal symbols */
 #undef LUAI_FUNC
@@ -60,51 +61,51 @@
 #define LUAI_DDEF	static
 
 /* core -- used by all */
-#include "lzio.c"
-#include "lctype.c"
-#include "lopcodes.c"
-#include "lmem.c"
-#include "lundump.c"
-#include "ldump.c"
-#include "lstate.c"
-#include "lgc.c"
-#include "llex.c"
-#include "lcode.c"
-#include "lparser.c"
-#include "ldebug.c"
-#include "lfunc.c"
-#include "lobject.c"
-#include "ltm.c"
-#include "lstring.c"
-#include "ltable.c"
-#include "ldo.c"
-#include "lvm.c"
-#include "lapi.c"
+#include "../lua/lzio.c"
+#include "../lua/lctype.c"
+#include "../lua/lopcodes.c"
+#include "../lua/lmem.c"
+#include "../lua/lundump.c"
+#include "../lua/ldump.c"
+#include "../lua/lstate.c"
+#include "../lua/lgc.c"
+#include "../lua/llex.c"
+#include "../lua/lcode.c"
+#include "../lua/lparser.c"
+#include "../lua/ldebug.c"
+#include "../lua/lfunc.c"
+#include "../lua/lobject.c"
+#include "../lua/ltm.c"
+#include "../lua/lstring.c"
+#include "../lua/ltable.c"
+#include "../lua/ldo.c"
+#include "../lua/lvm.c"
+#include "../lua/lapi.c"
 
 /* auxiliary library -- used by all */
-#include "lauxlib.c"
+#include "../lua/lauxlib.c"
 
 /* standard library  -- not used by luac */
 #ifndef LUA_SINGLE_UNITY_MAKE_LUAC
-#include "lbaselib.c"
-#include "lcorolib.c"
-#include "ldblib.c"
-#include "liolib.c"
-#include "lmathlib.c"
-#include "loadlib.c"
-#include "loslib.c"
-#include "lstrlib.c"
-#include "ltablib.c"
-#include "lutf8lib.c"
-#include "linit.c"
+#include "../lua/lbaselib.c"
+#include "../lua/lcorolib.c"
+#include "../lua/ldblib.c"
+#include "../lua/liolib.c"
+#include "../lua/lmathlib.c"
+#include "../lua/loadlib.c"
+#include "../lua/loslib.c"
+#include "../lua/lstrlib.c"
+#include "../lua/ltablib.c"
+#include "../lua/lutf8lib.c"
+#include "../lua/linit.c"
 #endif
 
 /* lua */
 #ifdef LUA_SINGLE_UNITY_MAKE_LUA
-#include "lua.c"
+#include "../lua/lua.c"
 #endif
 
 /* luac */
 #ifdef LUA_SINGLE_UNITY_MAKE_LUAC
-#include "luac.c"
+#include "../lua/luac.c"
 #endif
