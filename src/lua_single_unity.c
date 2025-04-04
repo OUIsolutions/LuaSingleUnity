@@ -19,7 +19,7 @@
 
 #endif
 
-#include "custom_onelua.c"
+#include "../lua/onelua.c"
 
 #if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
 #include "math.c"

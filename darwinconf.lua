@@ -7,6 +7,7 @@ MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
 MAX_RECURSION = 100
 RELEASE_DIR = "release"
 ONE_LUA_DEST = "lua/onelua.c"
+ONELUA_URL = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
 SOURCE_URL = "https://www.lua.org/ftp/lua-5.4.7.tar.gz"
 
 
@@ -30,9 +31,12 @@ if not darwin.dtw.isdir(OUT_DIR) then
     local first_dir = darwin.dtw.list_dirs(EXTRACTED_TAR_DEST,INCLUDE_PATH)[1]
     local src = first_dir.."/src"
     darwin.dtw.copy_any_overwriting(src,OUT_DIR)
-   -- darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
+    darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
 end 
-
+if not darwin.dtw.isfile(ONE_LUA_DEST) then
+    print("Downloading "..ONE_LUA_DEST)
+    os.execute("curl -L "..ONELUA_URL.." -o "..ONE_LUA_DEST)
+end 
 
 
 
