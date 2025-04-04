@@ -2,8 +2,8 @@
 
 
 #if defined(LUA_SINGLE_UNITY_HIDE_MAIN)
-    //these its in case some one were crazy enough to define a main for what ever reason
-    #ifdef main 
+    //these its in case some one were crazy enough to define a macro called "main" for what ever reason
+    #if defined(main) 
         #define LUA_SINGLE_UNITY_PREV_MAIN main
         #undef main
     #endif
@@ -22,13 +22,12 @@
 #include "math.c"
 #endif 
 
-#if defined(LUA_SINGLE_UNITY_HIDE_MAIN) && defined(LUA_SINGLE_UNITY_PREV_MAIN)
-    #ifdef LUA_SINGLE_UNITY_PREV_MAIN
-        #define main LUA_SINGLE_UNITY_PREV_MAIN
-    #endif
+#if defined(LUA_SINGLE_UNITY_HIDE_MAIN) 
+    #undef main
 #endif 
 
-#if defined(LUA_SINGLE_UNITY_HIDE_MAIN) && !defined(LUA_SINGLE_UNITY_PREV_MAIN)
-    #undef main
+#if defined(LUA_SINGLE_UNITY_HIDE_MAIN) && defined(LUA_SINGLE_UNITY_PREV_MAIN)
+    
+    #define main LUA_SINGLE_UNITY_PREV_MAIN
 #endif 
 
