@@ -12,23 +12,23 @@ Lua Single Unity mode
 | Flag | Description |
 | ---- | ----------- |
 |LUA_SINGLE_UNITY_GUESS_OS | guess the os, if defined, it will use the default os check [guess_os.h](/src/guess_os.h) |
-|LUA_SINGLE_UNITY_EMBED_MODE | use these if you want to embed lua into your C code , otherwise will raises **redefinition of main** |
-|LUA_SINGLE_UNITY_IMPLEMENT_MATH| (implements **math.h**) use these if you dont have the **-lm** avaliable on your os  |
-|LUA_SINGLE_UNITY_INPLEMENT_LUAC | use these if you want to compile the luac (lua bytecode generator) |
-|LUA_SINGLE_UNITY_MAKE_LUA| (its default if LUA_SINGLE_UNITY_EMBED_MODE and LUA_SINGLE_UNITY_INPLEMENT_LUAC are not defined) use these if you want to compile the lua runtime|
-|LUA_SINGLE_UNITY_CLASSIC_ONE_LUA_COMPATIBILITY| it is only usefull on [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c), with these flag will emulate the classic [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
+|LUA_SINGLE_UNITY_EMBED_MODE | use these if you want to embed lua into your C code , otherwise will raise **redefinition of main** |
+|LUA_SINGLE_UNITY_IMPLEMENT_MATH| (implements **math.h**) use these if you dont have the **-lm** available on your os  |
+|LUA_SINGLE_UNITY_IMPLEMENT_LUAC | use these if you want to compile the luac (lua bytecode generator) |
+|LUA_SINGLE_UNITY_MAKE_LUA| (its default if LUA_SINGLE_UNITY_EMBED_MODE and LUA_SINGLE_UNITY_IMPLEMENT_LUAC are not defined) use these if you want to compile the lua runtime|
+|LUA_SINGLE_UNITY_CLASSIC_ONE_LUA_COMPATIBILITY| it is only useful on [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c), with these flag will emulate the classic [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
 
-### Main difference betwen [lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c) and [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)
-basicly they are the same, the main difference its that these following macros are renamed
+### Main difference between [lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c) and [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)
+basically they are the same, the main difference is that these following macros are renamed
 
 | Old Name | New Name |
 | -------- | -------- |
 |MAKE_LIB  | LUA_SINGLE_UNITY_EMBED_MODE |
-|MAKE_LUAC | LUA_SINGLE_UNITY_INPLEMENT_LUAC |
+|MAKE_LUAC | LUA_SINGLE_UNITY_IMPLEMENT_LUAC |
 |MAKE_LUA | LUA_SINGLE_UNITY_MAKE_LUA |
 
 
-### Embeding Lua in Single Unity Compilation
+### Embedding Lua in Single Unity Compilation
 if you want to embed lua in single compilation, create a **test.c** file:
 
 ```c
@@ -39,7 +39,7 @@ int main() {
 
     lua_State *L = luaL_newstate();
     luaL_openlibs(L);
-    const char *expr = "return os.execute('echo carefull these could be executed by your user ')"; 
+    const char *expr = "return os.execute('echo careful these could be executed by your user ')"; 
     if (luaL_dostring(L, expr) == LUA_OK) {
         if (lua_isnumber(L, -1)) { 
             double result = lua_tonumber(L, -1);
@@ -54,7 +54,7 @@ int main() {
 
 ```
 
-### Embeding lua in Multi Compilation
+### Embedding lua in Multi Compilation
 if you want to embed lua in multi compilation, create a **test.c** file:
 
 ```c
@@ -86,7 +86,7 @@ cc  test.c lua_single_unity_classic_onelua.o -lm
 ### Loading Native libs
 native libs are contained into the amalgamation, so you can just call the **luaL_openlibs(L);**
 function to load the native libs.
-Note that, these its a dangerous function, since if you are inside a a low code, it can allow
+Note that, this is a dangerous function, since if you are inside a low code, it can allow
 users to run any code, so be careful with this function.
 ```c
 #define LUA_SINGLE_UNITY_EMBED_MODE
@@ -122,9 +122,9 @@ cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -lm -o lua_runt
 if you want to compile the **luac**, you can compile with:
 
 ```bash
-cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -DLUA_SINGLE_UNITY_INPLEMENT_LUAC -lm -o luac
+cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -DLUA_SINGLE_UNITY_IMPLEMENT_LUAC -lm -o luac
 ```
-than you can generate your bytecodes with
+then you can generate your bytecodes with
 ```bash
 ./luac -o test.luac test.lua
 ```
@@ -136,10 +136,9 @@ and running the bytecode in the lua virtual machine with
 
 
 
+## Build From Scratch
 
-## Build From Scracth
-
-if you want to build from scratch, you will need to have the follwoing tools 
+if you want to build from scratch, you will need to have the following tools 
 installed 
 
 - tar (if not provide the **lua** dir)
@@ -157,7 +156,7 @@ output
 
 
 ### Build passing font url
-if you have your fonts, you can pass in these way
+if you have your fonts, you can pass in this way
 ```bash
  darwin run_blueprint darwinconf.lua --source https://www.lua.org/ftp/lua-5.4.7.tar.gz --onelua https://raw.githubusercontent.com/lua/lua/refs/heads/master/onelua.c
 ```
@@ -205,4 +204,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
