@@ -34,8 +34,7 @@ For embedding Lua in single compilation, use:
 int main() {
 
     lua_State *L = luaL_newstate();
-    luaL_openlibs(L);
-    const char *expr = "return os.execute('echo careful these could be executed by your user ')"; 
+    const char *expr = "return 3 +3 + 5"; 
     if (luaL_dostring(L, expr) == LUA_OK) {
         if (lua_isnumber(L, -1)) { 
             double result = lua_tonumber(L, -1);
