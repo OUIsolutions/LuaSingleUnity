@@ -7,9 +7,9 @@ MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
 MAX_RECURSION = 100
 RELEASE_DIR = "release"
 ONE_LUA_DEST = "lua/onelua.c"
-ONELUA_URL = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
-SOURCE_URL = "https://www.lua.org/ftp/lua-5.4.7.tar.gz"
-
+onelua_url = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
+source_url = "https://www.lua.org/ftp/lua-5.4.7.tar.gz"
+APLY_ONE_LUA_MACRO_MODIFICATIONS = true
 
 
 print("Lua Single Unity Build")
@@ -36,6 +36,10 @@ end
 if not darwin.dtw.isfile(ONE_LUA_DEST) then
     print("Downloading "..ONE_LUA_DEST)
     os.execute("curl -L "..ONELUA_URL.." -o "..ONE_LUA_DEST)
+    
+    
+    local one_lua_content= darwin.dtw.load_file(ONE_LUA_DEST)
+    
 end 
 
 

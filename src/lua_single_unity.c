@@ -19,6 +19,18 @@
 
 #endif
 
+#if defined(LUA_SINGLE_UNITY_ONE_LUA_COMPATIBILITY)
+    #if defined(MAKE_LIB)
+        #define LUA_SINGLE_UNITY_MAKE_LIB 
+    #endif 
+    #if defined(MAKE_LUAC)
+        #define LUA_SINGLE_UNITY_MAKE_LUAC
+    #endif
+    #if defined(MAKE_LUA)
+        #define LUA_SINGLE_UNITY_MAKE_LUA
+    #endif 
+#endif
+ 
 #include "../lua/onelua.c"
 
 #if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
