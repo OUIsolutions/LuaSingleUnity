@@ -1,14 +1,14 @@
-# LuaSingleUnity
+## LuaSingleUnity
 Lua Single Unity mode
 
-## Releases
+### Releases
 | Item | Description |
 | ---- | ----------- |
 |[lua_single_unity.h](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity.h)| Header file|
 |[lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c)| single Unity definitions|
 |[lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)| exactly the same as the classic, but with some macro renamings on [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
 
-## Macros
+### Macros
 | Flag | Description |
 | ---- | ----------- |
 |LUA_SINGLE_UNITY_GUESS_OS | guess the os, if defined, it will use the default os check [guess_os.h](/src/guess_os.h) |
@@ -17,7 +17,7 @@ Lua Single Unity mode
 |LUA_SINGLE_UNITY_MAKE_LUA| (its default if LUA_SINGLE_UNITY_EMBED_MODE and LUA_SINGLE_UNITY_INPLEMENT_LUAC are not defined) use these if you want to compile the lua runtime|
 |LUA_SINGLE_UNITY_CLASSIC_ONE_LUA_COMPATIBILITY| it is only usefull on [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c), with these flag will emulate the classic [onelua.c](https://github.com/lua/lua/blob/master/onelua.c)|
 
-## Main difference betwen [lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c) and [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)
+### Main difference betwen [lua_single_unity_classic_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_classic_onelua.c) and [lua_single_unity_custom_onelua.c](https://github.com/OUIsolutions/LuaSingleUnity/releases/download/5.4.7/lua_single_unity_custom_onelua.c)
 basicly they are the same, the main difference its that these following macros are renamed
 
 | Old Name | New Name |
@@ -27,7 +27,7 @@ basicly they are the same, the main difference its that these following macros a
 |MAKE_LUA | LUA_SINGLE_UNITY_MAKE_LUA |
 
 
-## Embeding Lua in Single Unity Compilation
+### Embeding Lua in Single Unity Compilation
 if you want to embed lua in single compilation, create a **test.c** file:
 
 ```c
@@ -53,7 +53,7 @@ int main() {
 
 ```
 
-## Embeding lua in Multi Compilation
+### Embeding lua in Multi Compilation
 if you want to embed lua in multi compilation, create a **test.c** file:
 
 ```c
@@ -82,7 +82,7 @@ and compile with:
 cc  test.c lua_single_unity_classic_onelua.o -lm
 ```
 
-## Loading Native libs
+### Loading Native libs
 native libs are contained into the amalgamation, so you can just call the **luaL_openlibs(L);**
 function to load the native libs.
 Note that, these its a dangerous function, since if you are inside a a low code, it can allow
@@ -98,7 +98,7 @@ if you want to compile the **lua_runtime**, you can compile with:
 cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -lm -o lua_runtime
 ```
 
-## Compiling luac (lua bytecode compiler)
+### Compiling luac (lua bytecode compiler)
 if you want to compile the **luac**, you can compile with:
 
 ```bash
