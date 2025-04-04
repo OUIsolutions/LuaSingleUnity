@@ -47,11 +47,11 @@ print("===================================================================")
 
 local headers = darwin.camalgamator.generate_amalgamation("src/lua_single_unity.h", MAX_CONTENT, MAX_RECURSION)
 
-darwin.dtw.write_file(RELEASE_DIR.."release/lua_single_unity.h", headers)   
+darwin.dtw.write_file(RELEASE_DIR.."/lua_single_unity.h", headers)   
  
 
 
 local one_lua_import =darwin.camalgamator.generate_amalgamation("src/lua_single_unity.c",MAX_CONTENT,MAX_RECURSION)
 
-darwin.dtw.write_file(RELEASE_DIR.."release/lua_single_unity.c", one_lua_import)
+darwin.dtw.write_file(RELEASE_DIR.."/lua_single_unity.c", one_lua_import)
 
