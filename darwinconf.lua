@@ -7,8 +7,20 @@ MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
 MAX_RECURSION = 100
 RELEASE_DIR = "release"
 ONE_LUA_DEST = "lua/onelua.c"
-onelua_url = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
-source_url = "https://www.lua.org/ftp/lua-5.4.7.tar.gz"
+
+onelua_url = nil
+source_url = nil
+
+
+version = "5.4.7"
+
+if not onelua_url then 
+    onelua_url = "https://raw.githubusercontent.com/lua/lua/refs/tags/v"..version.."/onelua.c"
+end 
+if not source_url then 
+    source_url = "https://www.lua.org/ftp/lua-"..version..".tar.gz"
+end 
+
 aply_one_lua_macro_rename = true
 
 
