@@ -2,7 +2,9 @@
 
 OUT_ZIP = "lua.zip"
 OUT_DIR = "lua"
-
+MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
+MAX_RECURSION = 100
+RELEASE_DIR = "release"
 
 local version = darwin.argv.get_flag_arg_by_index({"version", "v"}, 1)
 if version == nil then
@@ -29,4 +31,13 @@ if not darwin.dtw.isdir(OUT_DIR) then
     darwin.dtw.move_any_overwriting(generated_dir, OUT_DIR)
     darwin.dtw.remove_any(generated_dir)
 end
-    
+
+print("Building Headders")
+print("===================================================================")
+
+
+
+result = darwin.camalgamator.generate_amalgamation("src/headers.h", MAX_CONTENT, MAX_RECURSION)
+
+darwin.dtw.write_file(RELEASE_DIR.."/lua_hedders.h", result)   
+ 
