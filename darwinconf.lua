@@ -26,7 +26,6 @@ if  one_lua_exist and  lua_dir_exist then
     version_is_required = false
 end
 
-print(version_is_required)
 if  version_is_required then
     version =darwin.argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
     if not version then
