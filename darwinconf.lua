@@ -43,11 +43,6 @@ end
 
 
 
-local aply_one_lua_macro_rename = darwin.argv.get_flag_arg_by_index({ "rename_macros" ,"rm"}, 1,true)
-
-if aply_one_lua_macro_rename == "false"  then
-    aply_one_lua_macro_rename = false
-end
 
 
 
@@ -74,17 +69,12 @@ if not one_lua_exist then
 
 end 
 
-local one_lua_content= darwin.dtw.load_file(ONE_LUA_LOCATION)
-if aply_one_lua_macro_rename then
-    print("Renaming macros in "..CUSTON_ONE_LUA_DEST)
-    one_lua_content = string.gsub(one_lua_content, "MAKE_LIB","LUA_SINGLE_UNITY_EMBED_MODE")
-    one_lua_content = string.gsub(one_lua_content, "MAKE_LUAC","LUA_SINGLE_UNITY_INPLEMENT_LUAC")
-    one_lua_content = string.gsub(one_lua_content, "MAKE_LUA","LUA_SINGLE_UNITY_INPLEMENT_LUA_RUNTIME")
-    darwin.dtw.write_file(CUSTON_ONE_LUA_DEST,one_lua_content)
-else
-    print("Copying "..CUSTON_ONE_LUA_DEST)
-    darwin.dtw.copy_any_overwriting(ONE_LUA_LOCATION,CUSTON_ONE_LUA_DEST)
-end
+one_lua_content= darwin.dtw.load_file(ONE_LUA_LOCATION)
+print("Renaming macros in "..CUSTON_ONE_LUA_DEST)
+one_lua_content = string.gsub(one_lua_content, "MAKE_LIB","LUA_SINGLE_UNITY_EMBED_MODE")
+one_lua_content = string.gsub(one_lua_content, "MAKE_LUAC","LUA_SINGLE_UNITY_INPLEMENT_LUAC")
+one_lua_content = string.gsub(one_lua_content, "MAKE_LUA","LUA_SINGLE_UNITY_INPLEMENT_LUA_RUNTIME")
+darwin.dtw.write_file(CUSTON_ONE_LUA_DEST,one_lua_content)
 
 
 
