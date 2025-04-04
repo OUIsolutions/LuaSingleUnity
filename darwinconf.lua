@@ -3,10 +3,11 @@
 local OUT_TAR = "lua.tar"
 local EXTRACTED_TAR_DEST = "extracted_tar"
 local OUT_DIR = "lua/"
+local ONE_LUA_LOCATION = OUT_DIR.."onelua.c"
 local MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
 local MAX_RECURSION = 100
 local RELEASE_DIR = "release"
-local ONE_LUA_DEST = "lua/onelua.c"
+local ONE_LUA_DEST = "lua/onelua_custom.c"
 
 local onelua_font = darwin.argv.get_flag_arg_by_index({ "onelua" ,"o"}, 1)
 local source_font = darwin.argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
@@ -46,19 +47,19 @@ if not darwin.dtw.isdir(OUT_DIR) then
     local first_dir = darwin.dtw.list_dirs(EXTRACTED_TAR_DEST,INCLUDE_PATH)[1]
     local src = first_dir.."/src"
     darwin.dtw.copy_any_overwriting(src,OUT_DIR)
-    darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
+    --darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
 end 
 
-if not darwin.dtw.isfile(ONE_LUA_DEST) then
+
+if not darwin.dtw.isfile(one_lua_location) then
     print("Downloading "..ONE_LUA_DEST)
-    os.execute("curl -L "..onelua_font.." -o "..ONE_LUA_DEST)
-    
-    local one_lua_content= darwin.dtw.load_file(ONE_LUA_DEST)
+    os.execute("curl -L "..onelua_font.." -o "..one_lua_location)
+    local one_lua_content= darwin.dtw.load_file(one_lua_location)
     if aply_one_lua_macro_rename then
         one_lua_content = string.gsub(one_lua_content, "MAKE_LIB","LUA_SINGLE_UNITY_EMBED_MODE")
         one_lua_content = string.gsub(one_lua_content, "MAKE_LUAC","LUA_SINGLE_UNITY_INPLEMENT_LUAC")
         one_lua_content = string.gsub(one_lua_content, "MAKE_LUA","LUA_SINGLE_UNITY_INPLEMENT_LUA_RUNTIME")
-        darwin.dtw.write_file(ONE_LUA_DEST, one_lua_content)
+        darwin.dtw.write_file(one_lua_content,ONE_LUA_DEST)
     end
 end 
 

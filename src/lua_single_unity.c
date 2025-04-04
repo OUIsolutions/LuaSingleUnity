@@ -27,14 +27,14 @@
         #define LUA_SINGLE_UNITY_INPLEMENT_LUAC
     #endif
     #if defined(MAKE_LUA)
-        #define LUA_SINGLE_UNITY_INPLEMENT_LUA_RUNTIME
+        #define LUA_SINGLE_UNITY_MAKE_LUA
     #endif 
 #endif
  
 
 
 
-#include "../lua/onelua.c"
+#include "../lua/onelua_custom.c"
 
 #if defined(LUA_SINGLE_UNITY_IMPLEMENT_MATH)
 #include "math.c"
