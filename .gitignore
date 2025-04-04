@@ -1,12 +1,12 @@
 # Prerequisites
 *.d
-
+lua-v5.4.7.zip
 # Object files
 *.o
 *.ko
 *.obj
 *.elf
-
+lua-5.4.7
 # Linker output
 *.ilk
 *.map
