@@ -1,6 +1,62 @@
 # LuaSingleUnity
 Lua Single Unity mode
 
+
+## Embeding Lua in Single Compilation
+if you want to embed lua in single compilation, create a **test.c** file:
+
+```c
+#define LUA_SINGLE_UNITY_EMBED_MODE
+#define LUA_SINGLE_UNITY_GUESS_OSS
+#include "lua_single_unity_classic_onelua.c"
+
+int main() {
+
+    lua_State *L = luaL_newstate();
+    const char *expr = "return 1 + 2 * 3"; 
+    if (luaL_dostring(L, expr) == LUA_OK) {
+        if (lua_isnumber(L, -1)) { 
+            double result = lua_tonumber(L, -1);
+            printf("result: %f\n", result);
+        }
+    } else {
+        printf("Error: %s\n", lua_tostring(L, -1)); 
+    }
+    lua_close(L); 
+    return 0;
+}
+```
+
+## Embeding lua in Multi Compilation
+if you want to embed lua in multi compilation, create a **test.c** file:
+
+```c
+#include "lua_single_unity.h"
+
+int main() {
+
+    lua_State *L = luaL_newstate();
+    const char *expr = "return 1 + 2 * 3"; 
+    if (luaL_dostring(L, expr) == LUA_OK) {
+        if (lua_isnumber(L, -1)) { 
+            double result = lua_tonumber(L, -1);
+            printf("result: %f\n", result);
+        }
+    } else {
+        printf("Error: %s\n", lua_tostring(L, -1)); 
+    }
+    lua_close(L); 
+    return 0;
+}
+```
+and compile with:
+
+```bash
+ cc -c lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -DLUA_SINGLE_UNITY_EMBED_MODE
+cc  test.c lua_single_unity_classic_onelua.o -lm
+```
+
+
 # Compiling the runtime
 
 if you want to compile the **lua_runtime**, you can compile with:
@@ -24,7 +80,6 @@ and running the bytecode in the lua virtual machine with
 ./lua_runtime test.luac
 ```
 
-## Embeding lua
 
 
 
