@@ -7,7 +7,7 @@ if you want to embed lua in single compilation, create a **test.c** file:
 
 ```c
 #define LUA_SINGLE_UNITY_EMBED_MODE
-#define LUA_SINGLE_UNITY_GUESS_OSS
+#define LUA_SINGLE_UNITY_GUESS_OS
 #include "lua_single_unity_classic_onelua.c"
 
 int main() {
@@ -52,7 +52,7 @@ int main() {
 and compile with:
 
 ```bash
- cc -c lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -DLUA_SINGLE_UNITY_EMBED_MODE
+ cc -c lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -DLUA_SINGLE_UNITY_EMBED_MODE
 cc  test.c lua_single_unity_classic_onelua.o -lm
 ```
 
@@ -62,14 +62,14 @@ cc  test.c lua_single_unity_classic_onelua.o -lm
 if you want to compile the **lua_runtime**, you can compile with:
 
 ```bash
-cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -lm -o lua_runtime
+cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -lm -o lua_runtime
 ```
 
 ## Compiling luac (lua bytecode compiler)
 if you want to compile the **luac**, you can compile with:
 
 ```bash
-cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -DLUA_SINGLE_UNITY_INPLEMENT_LUAC -lm -o luac
+cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OS -DLUA_SINGLE_UNITY_INPLEMENT_LUAC -lm -o luac
 ```
 than you can generate your bytecodes with
 ```bash
