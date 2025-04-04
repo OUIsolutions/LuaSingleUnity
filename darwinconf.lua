@@ -36,13 +36,9 @@ print("Lua Single Unity Build")
 print("===================================================================")
 
 
-
-if not darwin.dtw.isfile(OUT_TAR) then
+if not darwin.dtw.isdir(OUT_DIR) then 
     print("Downloading "..OUT_TAR)
     os.execute("curl -L "..source_font.." -o "..OUT_TAR)
-end
-
-if not darwin.dtw.isdir(OUT_DIR) then 
     print("Extracting "..OUT_TAR)
     os.execute("mkdir -p "..EXTRACTED_TAR_DEST)
     os.execute("tar -xzf "..OUT_TAR.." -C "..EXTRACTED_TAR_DEST)
@@ -52,10 +48,10 @@ if not darwin.dtw.isdir(OUT_DIR) then
     darwin.dtw.copy_any_overwriting(src,OUT_DIR)
     darwin.dtw.remove_any(EXTRACTED_TAR_DEST)
 end 
+
 if not darwin.dtw.isfile(ONE_LUA_DEST) then
     print("Downloading "..ONE_LUA_DEST)
     os.execute("curl -L "..onelua_font.." -o "..ONE_LUA_DEST)
-    
     
     local one_lua_content= darwin.dtw.load_file(ONE_LUA_DEST)
     if aply_one_lua_macro_rename then
