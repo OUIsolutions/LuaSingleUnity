@@ -4,7 +4,12 @@ lua.zip
 # Object files
 *.o
 lua
+lua_single_unity_classic_onelua.c
+lua_single_unity_custom_onelua.c
+lua_single_unity.h
 onelua_custom.c
+luac
+lua_runtime
 lua.tar
 TreinAiContext
 .TreinAiContext

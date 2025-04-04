@@ -1,13 +1,27 @@
 # LuaSingleUnity
 Lua Single Unity mode
 
+# Compiling the runtime
+
+if you want to compile the **lua_runtime**, you can compile with:
+
+```bash
+cc lua_single_unity_classic_onelua.c -DLUA_SINGLE_UNITY_GUESS_OSS -lm -o lua_runtime
+```
+
+## Compiling luac (lua bytecode compiler)
+if you want to compile the **luac**, you can compile with:
+
+```bash
+
+
 
 # Build From Scracth
 
 if you want to build from scratch, you will need to have the follwoing tools 
 installed 
 
-- tar (if not provide the source)
+- tar (if not provide the **lua** dir)
 - [darwin](https://github.com/OUIsolutions/Darwin) on version **0.2.1**
 
 ### Default Build
