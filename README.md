@@ -9,11 +9,11 @@ if you want to embed lua in single compilation, create a **test.c** file:
 #define LUA_SINGLE_UNITY_EMBED_MODE
 #define LUA_SINGLE_UNITY_GUESS_OS
 #include "lua_single_unity_classic_onelua.c"
-
 int main() {
 
     lua_State *L = luaL_newstate();
-    const char *expr = "return 1 + 2 * 3"; 
+    luaL_openlibs(L);
+    const char *expr = "return os.execute('echo carefull these could be executed by your user ')"; 
     if (luaL_dostring(L, expr) == LUA_OK) {
         if (lua_isnumber(L, -1)) { 
             double result = lua_tonumber(L, -1);
@@ -25,6 +25,7 @@ int main() {
     lua_close(L); 
     return 0;
 }
+
 ```
 
 ## Embeding lua in Multi Compilation
@@ -56,9 +57,16 @@ and compile with:
 cc  test.c lua_single_unity_classic_onelua.o -lm
 ```
 
+## Loading Native libs
+native libs are contained into the amalgamation, so you can just call the **luaL_openlibs(L);**
+function to load the native libs.
+Note that, these its a dangerous function, since if you are inside a a low code, it can allow
+users to run any code, so be careful with this function.
+```
 
-# Compiling the runtime
 
+
+## Compiling the runtime
 if you want to compile the **lua_runtime**, you can compile with:
 
 ```bash
@@ -84,7 +92,7 @@ and running the bytecode in the lua virtual machine with
 
 
 
-# Build From Scracth
+## Build From Scracth
 
 if you want to build from scratch, you will need to have the follwoing tools 
 installed 
