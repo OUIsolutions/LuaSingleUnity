@@ -8,20 +8,20 @@ local MAX_RECURSION = 100
 local RELEASE_DIR = "release"
 local ONE_LUA_DEST = "lua/onelua.c"
 
-local onelua_url = argv.get_flag_arg_by_index({ "onelua" ,"o"}, 1)
-local source_url = argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
+local onelua_font = argv.get_flag_arg_by_index({ "onelua" ,"o"}, 1)
+local source_font = argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
 
 
 local version = nil
-if not onelua_url or not source_url then
+if not onelua_font or not source_font then
     local version =argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
 end 
 
-if not onelua_url then 
-    onelua_url = "https://raw.githubusercontent.com/lua/lua/refs/tags/v"..version.."/onelua.c"
+if not onelua_font then 
+    onelua_font = "https://raw.githubusercontent.com/lua/lua/refs/tags/v"..version.."/onelua.c"
 end 
-if not source_url then 
-    source_url = "https://www.lua.org/ftp/lua-"..version..".tar.gz"
+if not source_font then 
+    source_font = "https://www.lua.org/ftp/lua-"..version..".tar.gz"
 end 
 
 aply_one_lua_macro_rename = true
@@ -34,7 +34,7 @@ print("===================================================================")
 
 if not darwin.dtw.isfile(OUT_TAR) then
     print("Downloading "..OUT_TAR)
-    os.execute("curl -L "..source_url.." -o "..OUT_TAR)
+    os.execute("curl -L "..source_font.." -o "..OUT_TAR)
 end
 
 if not darwin.dtw.isdir(OUT_DIR) then 
@@ -49,7 +49,7 @@ if not darwin.dtw.isdir(OUT_DIR) then
 end 
 if not darwin.dtw.isfile(ONE_LUA_DEST) then
     print("Downloading "..ONE_LUA_DEST)
-    os.execute("curl -L "..onelua_url.." -o "..ONE_LUA_DEST)
+    os.execute("curl -L "..onelua_font.." -o "..ONE_LUA_DEST)
     
     
     local one_lua_content= darwin.dtw.load_file(ONE_LUA_DEST)
