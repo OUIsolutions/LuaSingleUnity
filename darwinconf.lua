@@ -41,7 +41,7 @@ local headers = darwin.camalgamator.generate_amalgamation("src/headers.h", MAX_C
 
 darwin.dtw.write_file(RELEASE_DIR.."/lua_hedders.h", headers)   
  
-local filtrage = function(import,path)
+local filtrage = function(path,import)
     if import == "luac.c" then
         return "dont-change"
     end
