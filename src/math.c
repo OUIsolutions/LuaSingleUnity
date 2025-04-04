@@ -1,60 +1,29 @@
 
-double pow(double x, double y) {
-    return pow(x, y);
-}
+double pow(double x, double y);
 
-double floor(double x) {
-    return floor(x);
-}
+double floor(double x);
 
-double fmod(double x, double y) {
-    return fmod(x, y);
-}
+double fmod(double x, double y);
 
-double sin(double x) {
-    return sin(x);
-}
+double sin(double x);
 
-double cos(double x) {
-    return cos(x);
-}
+double cos(double x);
 
-double tan(double x) {
-    return tan(x);
-}
+double tan(double x);
 
-double asin(double x) {
-    return asin(x);
-}
+double asin(double x);
 
-double acos(double x) {
-    return acos(x);
-}
+double acos(double x);
 
-double atan2(double y, double x) {
-    return atan2(y, x);
-}
+double atan2(double y, double x);
 
-double ceil(double x) {
-    return ceil(x);
-}
+double ceil(double x);
 
-double sqrt(double x) {
-    return sqrt(x);
-}
+double sqrt(double x);
 
-double log(double x) {
-    return log(x);
-}
+double log(double x);
 
-double log2(double x) {
-    return log2(x);
-}
+double log2(double x);
 
-double log10(double x) {
-    return log10(x);
-}
-
-double exp(double x) {
-    return exp(x);
-}
+double log10(double x);
+double exp(double x);
