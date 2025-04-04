@@ -1,9 +1,9 @@
 
+VERSION = "5.4.7"
 
 function main()
-
       
-    local out_zip = "lua-v"..VERSION..".zip"
+    local out_zip = "lua"..VERSION..".zip"
     local url= "https://github.com/lua/lua/archive/refs/tags/v"..VERSION..".zip"
     local out_dir = "lua_code"
     if not darwin.dtw.isfile(out_zip) then
