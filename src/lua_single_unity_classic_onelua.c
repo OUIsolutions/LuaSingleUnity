@@ -5,7 +5,7 @@
     #define MAKE_LIB
 #endif 
 
-#if defined(LUA_SINGLE_UNITY_INPLEMENT_LUAC)
+#if defined(LUA_SINGLE_UNITY_IMPLEMENT_LUAC)
     #define MAKE_LUAC
 #endif
 
