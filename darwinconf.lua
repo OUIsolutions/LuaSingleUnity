@@ -1,38 +1,37 @@
 
-
-OUT_ZIP = "lua.zip"
-OUT_DIR = "lua"
-MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
-MAX_RECURSION = 100
-RELEASE_DIR = "release"
-
-ONELUA = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
-
 local version = darwin.argv.get_flag_arg_by_index({"version", "v"}, 1)
 if version == nil then
     print("Please provide a version number.")
     return
 end
 
+OUT_TAR = "lua.tar"
+OUT_DIR = "lua"
+MAX_CONTENT = darwin.camalgamator.ONE_MB * 10
+MAX_RECURSION = 100
+RELEASE_DIR = "release"
+
+ONELUA_URL = "https://raw.githubusercontent.com/lua/lua/refs/tags/"..version.."/onelua.c"
+SOURCE_URL = "https://www.lua.org/ftp/lua-"..version..".tar.gz"
+
+
+
 print("Lua Single Unity Build")
 print("===================================================================")
 
 
-local url= "https://github.com/lua/lua/archive/refs/tags/v"..version..".zip"
 
-
-if not darwin.dtw.isfile(OUT_ZIP) then
-    print("Downloading "..OUT_ZIP)
-    os.execute("curl -L "..url.." -o "..OUT_ZIP)
+if not darwin.dtw.isfile(OUT_TAR) then
+    print("Downloading "..OUT_TAR)
+    os.execute("curl -L "..SOURCE_URL.." -o "..OUT_TAR)
 end
+
 
 if not darwin.dtw.isdir(OUT_DIR) then
-    print("Unzipping "..OUT_ZIP)
-    os.execute("unzip -q "..OUT_ZIP)
-    local generated_dir ="lua-"..version
-    darwin.dtw.move_any_overwriting(generated_dir, OUT_DIR)
-    darwin.dtw.remove_any(generated_dir)
+    print("Extracting "..OUT_TAR)
+    os.execute("tar -xzf "..OUT_TAR)
 end
+if true then return end 
 
 print("Building Headders")
 print("===================================================================")

@@ -4,6 +4,7 @@ lua.zip
 # Object files
 *.o
 lua
+lua.tar
 TreinAiContext
 .TreinAiContext
 .TreinAiCache
