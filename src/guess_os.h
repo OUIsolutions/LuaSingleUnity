@@ -1,7 +1,7 @@
 
 
 
-#if defined(LUA_SINGLE_UNITY_GUESS_OSS)
+#if defined(LUA_SINGLE_UNITY_GUESS_OS)
 
     #if defined(__APPLE__)
         #include <TargetConditionals.h>

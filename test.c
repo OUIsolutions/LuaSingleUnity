@@ -1,5 +1,5 @@
 #define LUA_SINGLE_UNITY_EMBED_MODE
-#define LUA_SINGLE_UNITY_GUESS_OSS
+#define LUA_SINGLE_UNITY_GUESS_OS
 #include "lua_single_unity_classic_onelua.c"
 
 int main() {
