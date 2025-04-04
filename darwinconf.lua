@@ -14,7 +14,7 @@ local source_font = darwin.argv.get_flag_arg_by_index({ "source" ,"s"}, 1)
 
 local version = nil
 if not onelua_font or not source_font then
-    local version =darwin.argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
+    version =darwin.argv.get_flag_arg_by_index({ "version" ,"v"}, 1)
     if not version then
         print("Please provide the version of Lua you want to download. (--version) or (-- onelua <font> --source <font>)")
         return 
