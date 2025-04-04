@@ -9,7 +9,7 @@ RELEASE_DIR = "release"
 ONE_LUA_DEST = "lua/onelua.c"
 onelua_url = "https://raw.githubusercontent.com/lua/lua/refs/tags/v5.4.7/onelua.c"
 source_url = "https://www.lua.org/ftp/lua-5.4.7.tar.gz"
-APLY_ONE_LUA_MACRO_MODIFICATIONS = true
+aply_one_lua_modifications = true
 
 
 print("Lua Single Unity Build")
