@@ -2,10 +2,21 @@
 
 
 
-#if defined(LUA_SINGLE_UNITY_POSIX_GUESS)
-    #if defined(__unix__) || defined(__APPLE__) || defined(__linux__)
+#if defined(LUA_SINGLE_UNITY_GUESS_OSS)
+
+
+    #if defined(__linux__)
+        #define LUA_USE_LINUX
+    #elif defined(_WIN32) || defined(_WIN64)
+        #define LUA_USE_WINDOWS
+    #elif defined(__MACH__)
+        #define LUA_USE_MACOSX
+    #elif defined(__unix__) || defined(__unix__)
         #define LUA_USE_POSIX
     #endif 
+
+
+
 #endif 
 
 #include "../lua/onelua.c"
