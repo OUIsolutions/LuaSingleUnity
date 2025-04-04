@@ -7,6 +7,7 @@ lua-v5.4.7.zip
 *.obj
 *.elf
 lua-5.4.7
+teste.c
 # Linker output
 *.ilk
 *.map
