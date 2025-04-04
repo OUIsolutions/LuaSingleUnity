@@ -25,5 +25,8 @@ end
 if not darwin.dtw.isdir(OUT_DIR) then
     print("Unzipping "..OUT_ZIP)
     os.execute("unzip -q "..OUT_ZIP)
+    local generated_dir ="lua-"..version
+    darwin.dtw.move_any_overwriting(generated_dir, OUT_DIR)
+    darwin.dtw.remove_any(generated_dir)
 end
     

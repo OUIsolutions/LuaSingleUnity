@@ -3,6 +3,10 @@
 lua.zip
 # Object files
 *.o
+lua
+TreinAiContext
+.TreinAiContext
+.TreinAiCache
 *.ko
 .vscode
 *.obj
