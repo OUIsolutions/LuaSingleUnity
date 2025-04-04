@@ -54,5 +54,5 @@ local one_lua_import =darwin.camalgamator.generate_amalgamation_with_callback(
     MAX_CONTENT,
     MAX_RECURSION
 )
-darwin.dtw.write_file(RELEASE_DIR.."/one_lua_import.c", one_lua_import)
+darwin.dtw.write_file(RELEASE_DIR.."/onelua_import.c", one_lua_import)
 
