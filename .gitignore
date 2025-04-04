@@ -4,6 +4,7 @@ lua.zip
 # Object files
 *.o
 lua
+onelua_custom.c
 lua.tar
 TreinAiContext
 .TreinAiContext

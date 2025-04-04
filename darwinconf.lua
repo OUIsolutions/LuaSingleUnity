@@ -47,8 +47,7 @@ end
 
 
 print("Lua Single Unity Build")
-print("===================================================================")
-
+print("========================Getting Headders======================================")
 
 if not lua_dir_exist then 
     print("Downloading "..LUA_TAR)
@@ -64,10 +63,11 @@ if not lua_dir_exist then
 end 
 
 if not one_lua_exist then
-    print("Downloading "..CUSTON_ONE_LUA_DEST)
+    print("Downloading onelua.c")
     os.execute("curl -L "..onelua_font.." -o "..ONE_LUA_LOCATION)
 
 end 
+
 
 one_lua_content= darwin.dtw.load_file(ONE_LUA_LOCATION)
 print("Renaming macros in "..CUSTON_ONE_LUA_DEST)
@@ -77,9 +77,7 @@ one_lua_content = string.gsub(one_lua_content, "MAKE_LUA","LUA_SINGLE_UNITY_INPL
 darwin.dtw.write_file(CUSTON_ONE_LUA_DEST,one_lua_content)
 
 
-
-print("Building Headders")
-print("===================================================================")
+print("==========================Building Headders===================================")
 
 
 
@@ -88,8 +86,11 @@ local headers = darwin.camalgamator.generate_amalgamation("src/lua_single_unity.
 darwin.dtw.write_file(RELEASE_DIR.."/lua_single_unity.h", headers)   
  
 
+print("==========================Building Sources====================================")
 
-local one_lua_import =darwin.camalgamator.generate_amalgamation("src/lua_single_unity.c",MAX_CONTENT,MAX_RECURSION)
+local custom_one_lua_import =darwin.camalgamator.generate_amalgamation("src/lua_single_unity_custom_onelua.c",MAX_CONTENT,MAX_RECURSION)
 
-darwin.dtw.write_file(RELEASE_DIR.."/lua_single_unity.c", one_lua_import)
+darwin.dtw.write_file(RELEASE_DIR.."/lua_single_unity_custom_onelua.c", custom_one_lua_import)
 
+local classic_one_lua_import =darwin.camalgamator.generate_amalgamation("src/lua_single_unity_classic_onelua.c",MAX_CONTENT,MAX_RECURSION)
+darwin.dtw.write_file(RELEASE_DIR.."/lua_single_unity_classic_onelua.c", classic_one_lua_import)
