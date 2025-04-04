@@ -1,10 +1,10 @@
 
 //forked from: https://github.com/lua/lua
 
-#ifndef MAKE_LIB
-#ifndef MAKE_LUAC
-#ifndef MAKE_LUA
-#define MAKE_LUA
+#ifndef LUA_SINGLE_UNITY_MAKE_LIB
+#ifndef LUA_SINGLE_UNITY_MAKE_LUAC
+#ifndef LUA_SINGLE_UNITY_MAKE_LUA
+#define LUA_SINGLE_UNITY_MAKE_LUA
 #endif
 #endif
 #endif
@@ -85,7 +85,7 @@
 #include "lauxlib.c"
 
 /* standard library  -- not used by luac */
-#ifndef MAKE_LUAC
+#ifndef LUA_SINGLE_UNITY_MAKE_LUAC
 #include "lbaselib.c"
 #include "lcorolib.c"
 #include "ldblib.c"
@@ -100,11 +100,11 @@
 #endif
 
 /* lua */
-#ifdef MAKE_LUA
+#ifdef LUA_SINGLE_UNITY_MAKE_LUA
 #include "lua.c"
 #endif
 
 /* luac */
-#ifdef MAKE_LUAC
+#ifdef LUA_SINGLE_UNITY_MAKE_LUAC
 #include "luac.c"
 #endif
