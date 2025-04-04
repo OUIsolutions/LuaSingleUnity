@@ -1,7 +1,7 @@
 
 #include "guess_os.h"
-
-#if defined(LUA_SINGLE_UNITY_ONE_LUA_COMPATIBILITY)
+// with these macro allwoed will have the same behavior as the classic version
+#if defined(LUA_SINGLE_UNITY_CLASSIC_ONE_LUA_COMPATIBILITY)
     #if defined(MAKE_LIB)
         #define LUA_SINGLE_UNITY_EMBED_MODE 
     #endif 
