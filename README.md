@@ -2,7 +2,7 @@
 Lua Single Unity mode
 
 
-## Embeding Lua in Single Compilation
+## Embeding Lua in Single Unity Compilation
 if you want to embed lua in single compilation, create a **test.c** file:
 
 ```c
