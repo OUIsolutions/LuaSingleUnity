@@ -1,4 +1,19 @@
 
+
+
+// Floor function - returns the largest integer less than or equal to x
+double floor(double x) {
+    int i = (int)x;
+    
+    // If x is already an integer, return it
+    if (x == (double)i) return x;
+    
+    // For positive numbers, floor is the integer part
+    // For negative numbers, we need to decrease the integer part by 1 if there's a fractional part
+    return (x >= 0) ? (double)i : (double)(i - 1);
+}
+
+
 // Power function: x^y
 double pow(double x, double y) {
     // Handle special cases
